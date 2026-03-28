@@ -23,7 +23,10 @@
         </div>
     </header>
     <main>
-
+        <div class="item__list">
+            <a class="recommended-items__button-submit" href="/recommended">おすすめ</a>
+            <a class="mylist_button-submit" href="/?tab=mylist">マイリスト</a>
+        </div>
     </main>
 </body>
 

@@ -14,6 +14,7 @@ use Illuminate\Support\Str;
 use Laravel\Fortify\Actions\RedirectIfTwoFactorAuthenticatable;
 use Laravel\Fortify\Fortify;
 use App\Http\Requests\LoginRequest; //作成したLoginRequest
+use Laravel\Fortify\Contracts\LogoutResponse;
 use Laravel\Fortify\Http\Requests\LoginRequest as FortifyLoginRequest; //FortifyのLoginRequest
 
 class FortifyServiceProvider extends ServiceProvider
@@ -36,7 +37,7 @@ class FortifyServiceProvider extends ServiceProvider
         Fortify::updateUserPasswordsUsing(UpdateUserPassword::class);
         Fortify::resetUserPasswordsUsing(ResetUserPassword::class);
         Fortify::redirectUserForTwoFactorAuthenticationUsing(RedirectIfTwoFactorAuthenticatable::class);
-        
+
         //会員登録画面にauth/register.blade.phpを使用する
         Fortify::registerView(function ()
         {
@@ -51,7 +52,14 @@ class FortifyServiceProvider extends ServiceProvider
         $this->app->bind(FortifyLoginRequest::class, LoginRequest::class);
         //会員登録後プロフィール編集画面へ
         config(['fortify.home' => '/mypage/profile']);
-        
+        //ログアウト後ログイン画面へ
+        $this->app->instance(LogoutResponse::class, new class implements LogoutResponse
+        {
+            public function toResponse($request)
+            {
+                return redirect('login');
+            }
+        });
         RateLimiter::for('login', function (Request $request) {
             $throttleKey = Str::transliterate(Str::lower($request->input(Fortify::username())).'|'.$request->ip());
 
