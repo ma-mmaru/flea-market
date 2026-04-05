@@ -1,0 +1,80 @@
+.toppage_header {
+    width: 1512px;
+    height: 80px;
+    padding: 16px 8px;
+}
+
+.img {
+    width: 370px;
+    height: 36px;
+}
+
+/* プロフィール画像エリア全体のレイアウト */
+.form__group-content--image {
+    display: flex;
+    flex-direction: column;
+    /* 縦に並べる */
+    align-items: center;
+    /* 中央揃え */
+    gap: 15px;
+    /* 画像とボタンの間隔 */
+}
+
+/* 画像が入るコンテナ（丸のサイズを決める） */
+.profile-image-container {
+    width: 100px;
+    /* 任意のサイズ */
+    height: 100px;
+    /* 幅と高さを同じに */
+    border-radius: 50%;
+    /* 完全に丸くする */
+    overflow: hidden;
+    /* 丸からはみ出した部分を隠す */
+    border: 2px solid #ccc;
+    /* 枠線（オプション） */
+    background-color: #f0f0f0;
+    /* 画像がない時の背景色 */
+}
+
+/* 実際の画像 */
+.profile-image {
+    width: 100%;
+    /* コンテナの幅に合わせる */
+    height: 100%;
+    /* コンテナの高さに合わせる */
+    object-fit: cover;
+    /* 画像を丸い枠にきれいに収める（超重要） */
+}
+
+/* 画像がない場合の無地の丸（プレースホルダー） */
+.profile-image-placeholder {
+    width: 100%;
+    height: 100%;
+    background-color: #e0e0e0;
+    /* 少し暗めの無地 */
+}
+
+/* 『画像を選択する』ボタン（ラベルをボタン風に） */
+.image-upload-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #fff;
+    /* 白背景 */
+    color: #333;
+    /* 文字色 */
+    border: 1px solid #ccc;
+    /* 枠線 */
+    border-radius: 5px;
+    /* 少し角を丸く */
+    cursor: pointer;
+    /* カーソルを指に */
+    font-size: 14px;
+    transition: background-color 0.3s;
+    /* ホバー時のアニメーション */
+}
+
+/* ホバー時のデザイン */
+.image-upload-button:hover {
+    background-color: #f5f5f5;
+    /* 少しグレーに */
+}

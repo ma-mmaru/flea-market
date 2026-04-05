@@ -53,7 +53,7 @@
                     </div>
                 </div>
                 <div class="form__button">
-                    <button class="form__button-submit" type="submit">登録する</button>
+                    <button class="form__button-submit" type="submit">ログインする</button>
                 </div>
                 <div class="register__link">
                     <a class="register__button-submit" href="/register">会員登録はこちら</a>

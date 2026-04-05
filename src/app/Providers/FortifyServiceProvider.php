@@ -13,9 +13,9 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
 use Laravel\Fortify\Actions\RedirectIfTwoFactorAuthenticatable;
 use Laravel\Fortify\Fortify;
-use App\Http\Requests\LoginRequest; //作成したLoginRequest
 use Laravel\Fortify\Contracts\LogoutResponse;
-use Laravel\Fortify\Http\Requests\LoginRequest as FortifyLoginRequest; //FortifyのLoginRequest
+use Laravel\Fortify\Http\Requests\LoginRequest as FortifyLoginRequest;
+use App\Http\Requests\LoginRequest as MyLoginRequest;
 
 class FortifyServiceProvider extends ServiceProvider
 {
@@ -24,7 +24,16 @@ class FortifyServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        $this->app->singleton(LogoutResponse::class, function()
+        {
+            return new class implements LogoutResponse
+            {
+                public function toResponse($request)
+                {
+                    return redirect('/login');
+                }
+            };
+        });
     }
 
     /**
@@ -49,17 +58,17 @@ class FortifyServiceProvider extends ServiceProvider
             return view('auth.login');
         });
         //FortifyのLoginRequestから作成したLoginRequestに差し替え
-        $this->app->bind(FortifyLoginRequest::class, LoginRequest::class);
+        $this->app->singleton(FortifyLoginRequest::class, MyLoginRequest::class);
         //会員登録後プロフィール編集画面へ
         config(['fortify.home' => '/mypage/profile']);
-        //ログアウト後ログイン画面へ
         $this->app->instance(LogoutResponse::class, new class implements LogoutResponse
         {
             public function toResponse($request)
             {
-                return redirect('login');
+                return redirect('/login');
             }
         });
+
         RateLimiter::for('login', function (Request $request) {
             $throttleKey = Str::transliterate(Str::lower($request->input(Fortify::username())).'|'.$request->ip());
 
