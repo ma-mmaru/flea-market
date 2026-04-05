@@ -47,4 +47,9 @@ class User extends Authenticatable implements MustVerifyEmail
             'password' => 'hashed',
         ];
     }
+    
+    public function likedItems()
+    {
+        return $this->belongsToMany(Item::class, 'likes', 'user_id', 'item_id')->withTimestamps();
+    }
 }
