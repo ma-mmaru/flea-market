@@ -5,14 +5,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ログイン画面</title>
+    <title>メール認証画面</title>
     <link rel="stylesheet" href="{{ asset('css/sanitize.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/login.css') }}" />
 </head>
 
 <body>
-    <header class="toppage__header">
-        <img class="img" src="{{ asset('img/COACHTECHヘッダーロゴ.png') }}" alt=" coachtech">
+    <header class="header">
+        <img class="header__logo" src="{{ asset('img/COACHTECHヘッダーロゴ.png') }}" alt="coachtech">
     </header>
     <main>
         <div class="verify-email--form__content">

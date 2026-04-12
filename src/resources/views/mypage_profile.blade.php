@@ -13,13 +13,13 @@
 <body>
     <header class="toppage__header">
         <img class="img" src="{{ asset('img/COACHTECHヘッダーロゴ.png') }}" alt="coachtech">
-        <form class="seach__form" action="/search" method="get">
-            <input type="text" name="item" placeholder="なにをお探しですか？" />
+        <form class="search__form" action="/search" method="get">
+            <input type="text" name="keyword" placeholder="なにをお探しですか？" />
         </form>
         <div class="header__link">
             <form method="post" action="/logout">
                 @csrf
-                <button type="submit" class="login__button-submit">ログアウト</button>
+                <button type="submit" class="logout__button-submit">ログアウト</button>
             </form>
             <a class=" mypage__button-submit" href="/mypage">マイページ</a>
             <a class="sell__button-submit" href="/sell">出品</a>
@@ -42,15 +42,18 @@
                             @else
                             {{-- 画像がない場合 --}}
                             <div class="image-placeholder" id="preview-placeholder"></div>
+                            <img class="profile-image" src="" alt="プレビュー" id="preview-img">
                             @endif
                         </div>
-                        <label class="image-upload-button">
+                        <label class=" image-upload-button">
                             画像を選択する
                             <input type="file" name="profile_image" id="profile_image" accept=".jpeg, .png">
                         </label>
-                        @error('profile_image')
-                        {{ $message }}
-                        @enderror
+                        <div class="form__error">
+                            @error('profile_image')
+                            {{ $message }}
+                            @enderror
+                        </div>
                     </div>
                 </div>
                 <div class="form__group">
@@ -61,9 +64,11 @@
                         <div class="form__input--text">
                             <input type="text" name="name" value="{{ old('name', $user->name) }}" />
                         </div>
-                        @error('name')
-                        {{ $message }}
-                        @enderror
+                        <div class="form__error">
+                            @error('name')
+                            {{ $message }}
+                            @enderror
+                        </div>
                     </div>
                 </div>
                 <div class="form__group">
@@ -75,9 +80,11 @@
                             <input type="text" name="postal_code"
                                 value="{{ old('postal_code', $user->postal_code) }}" />
                         </div>
-                        @error('postal_code')
-                        {{ $message }}
-                        @enderror
+                        <div class="form__error">
+                            @error('postal_code')
+                            {{ $message }}
+                            @enderror
+                        </div>
                     </div>
                 </div>
                 <div class="form__group">
@@ -88,9 +95,11 @@
                         <div class="form__input--text">
                             <input type="text" name="address" value="{{ old('address', $user->address) }}" />
                         </div>
-                        @error('address')
-                        {{ $message }}
-                        @enderror
+                        <div class="form__error">
+                            @error('address')
+                            {{ $message }}
+                            @enderror
+                        </div>
                     </div>
                 </div>
                 <div class="form__group">
@@ -101,9 +110,11 @@
                         <div class="form__input--text">
                             <input type="text" name="building" value="{{ old('building', $user->building) }}" />
                         </div>
-                        @error('building')
-                        {{ $message }}
-                        @enderror
+                        <div class="form__error">
+                            @error('building')
+                            {{ $message }}
+                            @enderror
+                        </div>
                     </div>
                 </div>
                 <div class=" form__button">

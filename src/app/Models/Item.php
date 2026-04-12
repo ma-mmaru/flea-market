@@ -37,4 +37,15 @@ class Item extends Model
     {
         return $this->belongsToMany(Category::class, 'categories_items');
     }
+    //コメントとのリレーション(1対多)
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+    //ログインユーザーがこの商品をいいねしているか判定
+    public function isLikedBy(?User $user): bool
+    {
+        if (!$user) return false;
+        return $this->likes()->where('user_id', $user->id)->exists();
+    }
 }
