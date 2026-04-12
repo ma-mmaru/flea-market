@@ -4,10 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use App\Models\Item;
 use App\Http\Requests\ProfileRequest;
 
 class ProfileController extends Controller
 {
+    //マイページの表示
+    public function index()
+    {
+        $user = Auth::user();
+        return view('mypage_profile', compact('user'));
+    }
     //プロフィール編集画面の表示
     public function edit()
     {

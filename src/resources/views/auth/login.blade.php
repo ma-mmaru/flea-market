@@ -11,8 +11,8 @@
 </head>
 
 <body>
-    <header class="toppage__header">
-        <img class="img" src="{{ asset('img/COACHTECHヘッダーロゴ.png') }}" alt=" coachtech">
+    <header class="header">
+        <img class="header__logo" src="{{ asset('img/COACHTECHヘッダーロゴ.png') }}" alt=" coachtech">
     </header>
     <main>
         <div class="login--form__content">

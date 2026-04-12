@@ -12,14 +12,14 @@
 </head>
 
 <body>
-    <header class="toppage__header">
-        <img class="img" src="{{ asset('img/COACHTECHヘッダーロゴ.png') }}" alt="coachtech">
+    <header class="header">
+        <img class="header__logo" src="{{ asset('img/COACHTECHヘッダーロゴ.png') }}" alt="coachtech">
         {{-- 検索フォーム(現在のタブの状態$tabをhiddenで保持) --}}
-        <form class="search__form" action="/" method="get">
+        <form class="header__search-form" action="/" method="get">
             <input type="text" name="keyword" value="{{ request('keyword') }}" placeholder="なにをお探しですか？" />
             <input type="hidden" name="tab" value="{{ $tab }}">
         </form>
-        <div class="header__link">
+        <div class="header__link-group">
             @guest
             <a class="login__button-submit" href="/login">ログイン</a>
             @else
@@ -45,26 +45,28 @@
         <div class="item__grid">
             {{-- 商品一覧の表示 --}}
             @forelse($items as $item)
-            <div class="item__card">
-                <div class="item__image">
-                    <img src="{{ $item->image_url }}" alt="{{ $item->name }}">
-                    {{-- 購入済み商品は[Sold]と表示 --}}
-                    @if($item->isSold())
-                    <span class="sold-label">Sold</span>
-                    @endif
+            {{-- 商品詳細画面へ --}}
+            <a class="item__card-link" href="/item/{{ $item->id }}">
+                <div class=" item__card">
+                    <div class="item__image">
+                        <img src="{{ $item->image_url }}" alt="{{ $item->name }}">
+                        {{-- 購入済み商品は[Sold]と表示 --}}
+                        @if($item->isSold())
+                        <span class="sold-label">Sold</span>
+                        @endif
+                    </div>
+                    <p class="item__name">{{ $item->name }}</p>
                 </div>
-                <p class="item__name">{{ $item->name }}</p>
-            </div>
-            @empty
-            {{-- 未認証、該当なしの場合の表示 --}}
-            <p class="empty-message">
-                @if($tab === 'mylist' && !Auth::check())
-                ログインするとマイリストが表示されます。
-                @else
-                表示する商品がありません。
-                @endif
-            </p>
-            @endforelse
+                @empty
+                {{-- 未認証、該当なしの場合の表示 --}}
+                <p class="empty-message">
+                    @if($tab === 'mylist' && !Auth::check())
+                    ログインするとマイリストが表示されます。
+                    @else
+                    表示する商品がありません。
+                    @endif
+                </p>
+                @endforelse
         </div>
     </main>
 </body>
