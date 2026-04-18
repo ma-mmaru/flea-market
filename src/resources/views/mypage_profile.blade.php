@@ -11,12 +11,12 @@
 </head>
 
 <body>
-    <header class="toppage__header">
-        <img class="img" src="{{ asset('img/COACHTECHヘッダーロゴ.png') }}" alt="coachtech">
-        <form class="search__form" action="/search" method="get">
+    <header class="header">
+        <img class="header__logo" src="{{ asset('img/COACHTECHヘッダーロゴ.png') }}" alt="coachtech">
+        <form class="header__search-form" action="/search" method="get">
             <input type="text" name="keyword" placeholder="なにをお探しですか？" />
         </form>
-        <div class="header__link">
+        <div class="header__link-group">
             <form method="post" action="/logout">
                 @csrf
                 <button type="submit" class="logout__button-submit">ログアウト</button>

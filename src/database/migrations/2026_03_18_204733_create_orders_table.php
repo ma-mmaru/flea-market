@@ -19,6 +19,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             //支払い方法(コンビニ、カードetc..)
             $table->string('payment_method');
+            $table->unsignedInteger('price');
             //配送先住所
             $table->string('shipping_postal_code', 8);
             $table->string('shipping_address');
