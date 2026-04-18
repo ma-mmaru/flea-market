@@ -45,7 +45,7 @@
                         <div class="form__input--text">
                             <input type="password" name="password" placeholder="例:coachtech1106" />
                         </div>
-                        <div class=" form__error">
+                        <div class="form__error">
                             @error('password')
                             {{ $message }}
                             @enderror
