@@ -2,18 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Item;
+use App\Models\Order;
 use App\Http\Requests\ProfileRequest;
 
 class ProfileController extends Controller
 {
     //マイページの表示
-    public function index()
+    public function index(Request $request)
     {
         $user = Auth::user();
-        return view('mypage_profile', compact('user'));
+        $sellItems = Item::where('user_id', $user->id)->get();
+        $buyItems = Order::where('user_id', $user->id)->with('item')->get();
+        $page = $request->query('page', 'sell');
+        return view('mypage', compact('user', 'sellItems', 'buyItems', 'page'));
     }
     //プロフィール編集画面の表示
     public function edit()
@@ -39,6 +44,6 @@ class ProfileController extends Controller
         }
         //バリデーション済み、画像パスのデータで更新
         $user->update($data);
-        return redirect('/mypage')->with('message', 'プロフィールを更新しました');
+        return redirect()->route('mypage')->with('message', 'プロフィールを更新しました');
     }
 }

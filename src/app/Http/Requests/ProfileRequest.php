@@ -24,7 +24,7 @@ class ProfileRequest extends FormRequest
     {
         return [
             //プロフィール画像
-            'profile_image' => ['nullable', 'image', 'mimes:jpeg,png', 'max:2048'],
+            'profile_image' => ['nullable', 'image', 'mimes:jpeg,png', 'max:10240'],
             //ユーザー名
             'name' => ['required', 'string', 'max:20'],
             //郵便番号

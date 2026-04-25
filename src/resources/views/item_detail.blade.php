@@ -122,7 +122,7 @@
                     <div class="comment-form-block">
                         <p class="form-label">商品へのコメント</p>
                         @auth
-                        <form action="{{ route('comment.store') }}" method="post">
+                        <form action="{{ route('comment.store', ['item' => $item->id]) }}" method="post">
                             @csrf
                             <input type="hidden" name="item_id" value="{{ $item->id }}">
                             <textarea name="content" class="comment-textarea">{{ old('content') }}</textarea>
