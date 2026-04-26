@@ -26,7 +26,12 @@
         </div>
     </header>
     <main>
-        <div class="profile">
+        @if(session('message'))
+        <div class="alert-success">
+            {{ session('message') }}
+        </div>
+        @endif
+        <div class=" profile">
             <div class="profile-image">
                 <img src="{{ $user->profile_image ? asset('storage/' . $user->profile_image) : asset('img/default-icon.png') }}"
                     alt="ユーザー画像">
