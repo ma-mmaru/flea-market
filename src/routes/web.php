@@ -21,8 +21,8 @@ Route::middleware(['auth'])->group(function()
     //プロフィール更新処理
     Route::post('/mypage/profile', [ProfileController::class, 'update'])->name('profile.update');
     //出品機能
-    Route::get('/sell', [ItemController::class, 'create'])->name('item.create');
-    Route::post('/sell', [ItemController::class, 'store'])->name('item.store');
+    Route::get('/sell', [ItemController::class, 'create'])->name('exhibition.create');
+    Route::post('/sell', [ItemController::class, 'store'])->name('exhibition.store');
     //ログアウト機能をここに実装
     
     //いいね

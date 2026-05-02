@@ -47,7 +47,7 @@
             @forelse($items as $item)
             {{-- 商品詳細画面へ --}}
             <a class="item__card-link" href="/item/{{ $item->id }}">
-                <div class=" item__card">
+                <div class="item__card">
                     <div class="item__image">
                         <img src="{{ $item->image_url }}" alt="{{ $item->name }}">
                         {{-- 購入済み商品は[Sold]と表示 --}}

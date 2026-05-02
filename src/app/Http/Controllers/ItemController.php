@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Item;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use App\Http\Requests\ExhibitionRequest;
 use Illuminate\Support\Facades\Auth;
 
 class ItemController extends Controller
@@ -58,12 +59,23 @@ class ItemController extends Controller
     //出品画面の表示
     public function create()
     {
-        //必要に応じてカテゴリ一覧などを取得して渡す
-        return view('sell');
+        $categories = Category::all();
+        return view('sell', compact('categories'));
     }
     //出品処理
-    public function store(Request $request)
+    public function store(ExhibitionRequest $request)
     {
-        //ここに出品保存ロジックを(バリデーションや画像保存)を実装する
+        $user = Auth::user();
+        $path = $request->file('image_url')->store('item_images', 'public');
+        $item = Item::create([
+            'user_id' => Auth::id(),
+            'name' => $request->name,
+            'description' => $request->description,
+            'price' => $request->price,
+            'condition' => $request->condition,
+            'image_url' => $path
+        ]);
+        $item->categories()->attach($request->categories);
+        return redirect()->route('mypage')->with('message', '商品を出品しました');
     }
 }

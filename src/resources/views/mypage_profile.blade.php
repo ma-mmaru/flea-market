@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>プロフィール編集画面（設定画面）</title>
     <link rel="stylesheet" href="{{ asset('css/sanitize.css') }}" />
-    <link rel="stylesheet" href="{{ asset('css/mypage_profile.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/sell.css') }}" />
 </head>
 
 <body>
@@ -18,16 +18,12 @@
         <form class="header__search-form" action="/search" method="get">
             <input type="text" name="keyword" placeholder="なにをお探しですか？" />
         </form>
-        <!-- header-link -->
         <div class="header__link-group">
             <form method="post" action="/logout">
                 @csrf
-                <!-- header-link__logout -->
                 <button type="submit" class="logout__button-submit">ログアウト</button>
             </form>
-            <!-- header-link__mypage -->
             <a class="mypage__button-submit" href="/mypage">マイページ</a>
-            <!-- header-link__sell -->
             <a class="sell__button-submit" href="/sell">出品</a>
         </div>
     </header>

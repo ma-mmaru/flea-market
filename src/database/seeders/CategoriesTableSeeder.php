@@ -20,8 +20,15 @@ class CategoriesTableSeeder extends Seeder
             ['name' => '家電'],
             ['name' => 'インテリア'],
             ['name' => '野菜'],
-            ['name' => '生活用品'],
-            ['name' => '化粧品'],
+            ['name' => 'キッチン'],
+            ['name' => 'コスメ'],
+            ['name' => '本'],
+            ['name' => 'ゲーム'],
+            ['name' => 'スポーツ'],
+            ['name' => 'ハンドメイド'],
+            ['name' => 'アクセサリー'],
+            ['name' => 'おもちゃ'],
+            ['name' => 'ベビー・キッズ'],
         ];
         foreach ($categories as $category){
             Category::firstOrCreate(['name' => $category['name']]);
