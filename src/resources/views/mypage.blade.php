@@ -31,7 +31,7 @@
             {{ session('message') }}
         </div>
         @endif
-        <div class=" profile">
+        <div class="profile">
             <div class="profile-image">
                 <img src="{{ $user->profile_image ? asset('storage/' . $user->profile_image) : asset('img/default-icon.png') }}"
                     alt="ユーザー画像">
@@ -54,8 +54,12 @@
             @else
             @foreach($buyItems as $order)
             <div class="profile-item_card">
+                @if($order->item)
                 <img src="{{ $order->item->image_url }}" alt="{{ $order->item->name }}">
                 <p class="profile-item_name">{{ $order->item->name }}</p>
+                @else
+                <p class="profile-item_name">商品情報なし</p>
+                @endif
             </div>
             @endforeach
             @endif

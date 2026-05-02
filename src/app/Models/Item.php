@@ -48,4 +48,12 @@ class Item extends Model
         if (!$user) return false;
         return $this->likes()->where('user_id', $user->id)->exists();
     }
+    public function getImageUrlAttribute($value)
+    {
+        if (str_starts_with($value, 'http'))
+            {
+                return $value;
+            }
+            return asset('storage/' . $value);
+    }
 }
