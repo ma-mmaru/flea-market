@@ -13,10 +13,11 @@
 <body>
     <header class="header">
         <img class="header__logo" src="{{ asset('img/COACHTECHヘッダーロゴ.png') }}" alt="coachtech">
-        <form class="header__search-form" action="/" method="get">
-            <input type="text" name="keyword" placeholder="なにをお探しですか？" value="{{ request('keyword') }}" />
+        <form class="header__search-form" action="{{ route('item.index') }}" method="get">
+            <input type="text" name="keyword" value="{{ request('keyword') }}" placeholder="なにをお探しですか？" />
+            <input type="hidden" name="tab" value="{{ ('tab', 'all') }}">
         </form>
-        <div class="header__link-group">
+        <div class=" header__link-group">
             @auth
             <form class="logout-form" method="post" action="/logout">
                 @csrf

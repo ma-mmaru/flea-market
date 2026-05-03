@@ -12,22 +12,17 @@
 
 <body>
     <header class="header">
-        <!-- header-logo -->
         <img class="header__logo" src="{{ asset('img/COACHTECHヘッダーロゴ.png') }}" alt="coachtech">
-        <!-- header-search -->
-        <form class="header__search-form" action="/search" method="get">
-            <input type="text" name="keyword" placeholder="なにをお探しですか？" />
+        <form class="header__search-form" action="{{ route('item.index') }}" method="get">
+            <input type="text" name="keyword" value="{{ request('keyword') }}" placeholder="なにをお探しですか？" />
+            <input type="hidden" name="tab" value="all">
         </form>
-        <!-- header-link -->
-        <div class="header__link-group">
+        <div class=" header__link-group">
             <form method="post" action="/logout">
                 @csrf
-                <!-- header-link__logout -->
                 <button type="submit" class="logout__button-submit">ログアウト</button>
             </form>
-            <!-- header-link__mypage -->
             <a class="mypage__button-submit" href="/mypage">マイページ</a>
-            <!-- header-link__sell -->
             <a class="sell__button-submit" href="/sell">出品</a>
         </div>
     </header>

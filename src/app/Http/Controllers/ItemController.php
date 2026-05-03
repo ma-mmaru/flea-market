@@ -70,6 +70,7 @@ class ItemController extends Controller
         $item = Item::create([
             'user_id' => Auth::id(),
             'name' => $request->name,
+            'brand' => $request->brand,
             'description' => $request->description,
             'price' => $request->price,
             'condition' => $request->condition,
