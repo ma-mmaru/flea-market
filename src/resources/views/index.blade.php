@@ -15,9 +15,9 @@
     <header class="header">
         <img class="header__logo" src="{{ asset('img/COACHTECHヘッダーロゴ.png') }}" alt="coachtech">
         {{-- 検索フォーム(現在のタブの状態$tabをhiddenで保持) --}}
-        <form class="header__search-form" action="/" method="get">
+        <form class="header__search-form" action="{{ route('item.index') }}" method="get">
             <input type="text" name="keyword" value="{{ request('keyword') }}" placeholder="なにをお探しですか？" />
-            <input type="hidden" name="tab" value="{{ $tab }}">
+            <input type="hidden" name="tab" value="{{ $tab ?? 'all' }}">
         </form>
         <div class="header__link-group">
             @guest
@@ -57,16 +57,17 @@
                     </div>
                     <p class="item__name">{{ $item->name }}</p>
                 </div>
-                @empty
-                {{-- 未認証、該当なしの場合の表示 --}}
-                <p class="empty-message">
-                    @if($tab === 'mylist' && !Auth::check())
-                    ログインするとマイリストが表示されます。
-                    @else
-                    表示する商品がありません。
-                    @endif
-                </p>
-                @endforelse
+            </a>
+            @empty
+            {{-- 未認証、該当なしの場合の表示 --}}
+            <p class="empty-message">
+                @if($tab === 'mylist' && !Auth::check())
+                ログインするとマイリストが表示されます。
+                @else
+                表示する商品がありません。
+                @endif
+            </p>
+            @endforelse
         </div>
     </main>
 </body>

@@ -23,8 +23,6 @@ Route::middleware(['auth'])->group(function()
     //出品機能
     Route::get('/sell', [ItemController::class, 'create'])->name('exhibition.create');
     Route::post('/sell', [ItemController::class, 'store'])->name('exhibition.store');
-    //ログアウト機能をここに実装
-    
     //いいね
     Route::post('/item/{item}/like', [LikeController::class, 'store'])->name('like.store');
     //コメント送信機能

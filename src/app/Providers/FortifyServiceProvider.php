@@ -15,6 +15,7 @@ use Laravel\Fortify\Actions\RedirectIfTwoFactorAuthenticatable;
 use Laravel\Fortify\Fortify;
 use Laravel\Fortify\Contracts\LogoutResponse;
 use Laravel\Fortify\Http\Requests\LoginRequest as FortifyLoginRequest;
+use Laravel\Fortify\Contracts\RegisterResponse;
 use App\Http\Requests\LoginRequest as MyLoginRequest;
 
 class FortifyServiceProvider extends ServiceProvider
@@ -59,8 +60,16 @@ class FortifyServiceProvider extends ServiceProvider
         });
         //FortifyのLoginRequestから作成したLoginRequestに差し替え
         $this->app->singleton(FortifyLoginRequest::class, MyLoginRequest::class);
-        //会員登録後プロフィール編集画面へ
-        config(['fortify.home' => '/mypage/profile']);
+        $this->app->singleton(RegisterResponse::class, function()
+        {
+            return new class implements RegisterResponse
+            {
+                public function toResponse($request)
+                {
+                    return redirect('/mypage/profile');
+                }
+            };
+        });
         $this->app->instance(LogoutResponse::class, new class implements LogoutResponse
         {
             public function toResponse($request)
