@@ -36,17 +36,20 @@
 
     <main>
         <div class="item__tabs">
-            {{-- 検索ワードを保持したままタブを切り替える --}}
             <a class="tab-link {{ $tab == 'all' ? 'active' : '' }}"
                 href="/?tab=all&keyword={{ request('keyword') }}">おすすめ</a>
+            @auth
             <a class="tab-link {{ $tab == 'mylist' ? 'active' : '' }}"
                 href="/?tab=mylist&keyword={{ request('keyword') }}">マイリスト</a>
+            @else
+            <a class="tab-link {{ $tab == 'mylist' ? 'active' : '' }}" href="{{ route('mypage') }}">マイリスト</a>
+            @endauth
         </div>
-        <div class="item__grid">
+        <div class=" item__grid">
             {{-- 商品一覧の表示 --}}
             @forelse($items as $item)
             {{-- 商品詳細画面へ --}}
-            <a class="item__card-link" href="/item/{{ $item->id }}">
+            <a class=" item__card-link" href="/item/{{ $item->id }}">
                 <div class="item__card">
                     <div class="item__image">
                         <img src="{{ $item->image_url }}" alt="{{ $item->name }}">
@@ -60,13 +63,7 @@
             </a>
             @empty
             {{-- 未認証、該当なしの場合の表示 --}}
-            <p class="empty-message">
-                @if($tab === 'mylist' && !Auth::check())
-                ログインするとマイリストが表示されます。
-                @else
-                表示する商品がありません。
-                @endif
-            </p>
+            <p class="empty-message">表示する商品がありません。</p>
             @endforelse
         </div>
     </main>
