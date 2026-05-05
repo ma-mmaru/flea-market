@@ -35,6 +35,15 @@ class FortifyServiceProvider extends ServiceProvider
                 }
             };
         });
+        $this->app->singleton(RegisterResponse::class, function()
+        {
+            return new class implements RegisterResponse{
+                public function toResponse($request)
+                {
+                    return redirect('/email/verify');
+                }
+            };
+        });
     }
 
     /**
@@ -60,24 +69,11 @@ class FortifyServiceProvider extends ServiceProvider
         });
         //FortifyのLoginRequestから作成したLoginRequestに差し替え
         $this->app->singleton(FortifyLoginRequest::class, MyLoginRequest::class);
-        $this->app->singleton(RegisterResponse::class, function()
-        {
-            return new class implements RegisterResponse
-            {
-                public function toResponse($request)
-                {
-                    return redirect('/mypage/profile');
-                }
-            };
-        });
-        $this->app->instance(LogoutResponse::class, new class implements LogoutResponse
-        {
-            public function toResponse($request)
-            {
-                return redirect('/login');
-            }
-        });
-
+        $this->configureRateLimiting();
+    }
+    
+    protected function configureRateLimiting(): void
+    {
         RateLimiter::for('login', function (Request $request) {
             $throttleKey = Str::transliterate(Str::lower($request->input(Fortify::username())).'|'.$request->ip());
 
