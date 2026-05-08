@@ -8,12 +8,12 @@ use Illuminate\Support\Facades\Auth;
 
 class CommentController extends Controller
 {
-    public function store(CommentRequest $request)
+    public function store(CommentRequest $request, $item)
     {
         //ログインユーザーのみ保存
         Comment::create([
             'user_id' => Auth()->id(),
-            'item_id' => $request->item_id,
+            'item_id' => $item,
             'content' => $request->content,
         ]);
         //画面を戻すとコメント数が増加表示

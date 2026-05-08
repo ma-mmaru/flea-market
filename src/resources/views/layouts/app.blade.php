@@ -7,13 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title')</title>
     <link rel="stylesheet" href="{{ asset('css/sanitize.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/common.css') }}" />
     @yield('css')
 </head>
 
 <body>
     <header class="header">
         <div class="header__inner">
-            <img class=" header__logo" src="{{ asset('img/COACHTECHヘッダーロゴ.png') }}" alt="coachtech">
+            <img class="header__logo" src="{{ asset('img/COACHTECHヘッダーロゴ.png') }}" alt="coachtech">
             @yield('search')
             <nav class="header__link-group">
                 @auth
@@ -21,10 +22,10 @@
                     @csrf
                     <button type="submit" class="logout__button-submit">ログアウト</button>
                 </form>
-                <a class="mypage__button-submit" href="/mypage">マイページ</a>
                 @else
                 <a class="login__button-submit" href="/login">ログイン</a>
                 @endauth
+                <a class="mypage__button-submit" href="/mypage">マイページ</a>
                 <a class="sell__button-submit" href="/sell">出品</a>
             </nav>
         </div>

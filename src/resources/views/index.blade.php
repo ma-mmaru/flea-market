@@ -15,13 +15,16 @@
 
 @section('content')
 <div class="item__tabs">
-    <a class="tab-link {{ $tab == 'all' ? 'active' : '' }}" href="/?tab=all&keyword={{ request('keyword') }}">おすすめ</a>
-    @auth
-    <a class="tab-link {{ $tab == 'mylist' ? 'active' : '' }}"
-        href="/?tab=mylist&keyword={{ request('keyword') }}">マイリスト</a>
-    @else
-    <a class="tab-link {{ $tab == 'mylist' ? 'active' : '' }}" href="{{ route('mypage') }}">マイリスト</a>
-    @endauth
+    <div class="item__tabs-inner">
+        <a class="tab-link {{ $tab == 'all' ? 'active' : '' }}" href="/?tab=all&keyword={{ request('keyword') }}">
+            おすすめ</a>
+        @auth
+        <a class="tab-link {{ $tab == 'mylist' ? 'active' : '' }}"
+            href="/?tab=mylist&keyword={{ request('keyword') }}">マイリスト</a>
+        @else
+        <a class="tab-link {{ $tab == 'mylist' ? 'active' : '' }}" href="{{ route('mypage') }}">マイリスト</a>
+        @endauth
+    </div>
 </div>
 <div class="item__grid">
     {{-- 商品一覧の表示 --}}
