@@ -1,0 +1,305 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.header {
+    background-color: #000000;
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+}
+
+
+.header__inner {
+    width: 1512px;
+    height: 80px;
+    position: relative;
+    margin: 0 auto;
+}
+
+.header__logo {
+    position: absolute;
+    left: 40px;
+    top: 22px;
+    width: 370px;
+    height: 36px;
+}
+
+.header__search-form {
+    position: absolute;
+    left: 475px;
+    top: 0;
+    width: 563px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+}
+
+.header__search-form input {
+    width: 100%;
+    height: 36px;
+    padding: 0 15px;
+    border-radius: 4px;
+    border: none;
+    font-size: 16px;
+}
+
+.header__link-group {
+    position: absolute;
+    left: 1049px;
+    top: 0;
+    width: 463px;
+    height: 80px;
+}
+
+.login__button-submit,
+.logout__button-submit {
+    position: absolute;
+    left: 37px;
+    top: 20px;
+    width: 135px;
+    height: 47px;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mypage__button-submit {
+    position: absolute;
+    left: 181px;
+    top: 20px;
+    width: 135px;
+    height: 47px;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sell__button-submit {
+    position: absolute;
+    left: 337px;
+    top: 18px;
+    width: 100px;
+    height: 50px;
+    background-color: #ffffff;
+    color: #000000;
+    border-radius: 4px;
+    font-weight: bold;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logout__form {
+    margin: 0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+/*ヘッダー*/
+header.header {
+    background-color: #000000;
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+}
+
+header.header div.header__inner {
+    width: 1512px;
+    height: 80px;
+    position: relative;
+    margin: 0 auto;
+}
+
+header.header .header__logo {
+    position: absolute;
+    left: 40px;
+    top: 22px;
+    width: 370px;
+    height: 36px;
+}
+
+header.header .header__search-form {
+    position: absolute;
+    left: 475px;
+    top: 22px;
+    width: 563px;
+    height: 36px;
+}
+
+header.header .header__search-form input {
+    width: 100%;
+    height: 100%;
+    padding: 0 15px;
+    border-radius: 4px;
+    border: none;
+    font-size: 16px;
+}
+
+header.header nav.header__link-group {
+    position: absolute;
+    left: 1049px;
+    top: 0;
+    width: 463px;
+    height: 80px;
+}
+
+header.header .login__button-submit,
+header.header .logout__button-submit,
+header.header .mypage__button-submit,
+header.header .sell__button-submit {
+    position: absolute;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 18px;
+    text-decoration: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header.header .login__button-submit,
+header.header .logout__button-submit {
+    left: 37px;
+    top: 20px;
+    width: 135px;
+    height: 47px;
+}
+
+header.header .mypage__button-submit {
+    left: 181px;
+    top: 20px;
+    width: 135px;
+    height: 47px;
+}
+
+header.header .sell__button-submit {
+    left: 337px;
+    top: 18px;
+    width: 100px;
+    height: 50px;
+    background-color: #ffffff;
+    color: #000000;
+    border-radius: 4px;
+}
+
+/*会員登録画面・ログイン画面*/
+
+.register--form__content,
+.login--form__content {
+    width: 1512px;
+    margin: 0 auto;
+    padding-top: 80px;
+    position: relative;
+}
+
+h1.register,
+h1.login {
+    text-align: center;
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 40px;
+}
+
+.form {
+    width: 680px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.form__group {
+    margin-bottom: 25px;
+}
+
+.form__label--item {
+    font-size: 24px;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.form__input--text input {
+    width: 680px;
+    height: 59px;
+    border: 1px solid #5F5F5F;
+    border-radius: 4px;
+    font-size: 24px;
+    padding: 0 15px;
+}
+
+.form__button {
+    margin-top: 30px;
+}
+
+.form__button-submit {
+    width: 680px;
+    height: 65px;
+    background-color: #FF5555;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    font-size: 26px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+div.login__link,
+div.register__link {
+    position: relative;
+    /* 左上への飛び出しを防止 */
+    left: 0;
+    top: 0;
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+}
+
+
+div.login__link a.login__button-submit,
+div.register__link a.register__button-submit {
+    position: static;
+    color: #0073CC;
+    font-size: 20px;
+    font-weight: 400;
+    text-decoration: none;
+    display: inline-block;
+    width: auto;
+    height: auto;
+}
+
+.form__error {
+    color: #ff0000;
+    font-size: 16px;
+    margin-top: 5px;
+}

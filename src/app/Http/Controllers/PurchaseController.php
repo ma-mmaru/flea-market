@@ -74,7 +74,7 @@ class PurchaseController extends Controller
                 'quantity' => 1,
             ]],
             'mode' => 'payment',
-            'success_url' => route('purchase.success', ['item => $item->id']),
+            'success_url' => route('purchase.success', ['item' => $item->id]),
             'cancel_url' => route('purchase.show', ['item' => $item->id]),
         ]);
         return redirect($checkout_session->url, 303);
