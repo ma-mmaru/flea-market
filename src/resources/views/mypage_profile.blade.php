@@ -3,7 +3,7 @@
 @section('title', 'プロフィール編集画面（設定画面）')
 
 @section('css')
-<link rel="stylesheet" href="{{ asset('css/sell.css') }}" />
+<link rel="stylesheet" href="{{ asset('css/mypage_profile.css') }}" />
 @endsection
 
 @section('search')
@@ -33,7 +33,7 @@
                     <img class="profile-image" src="" alt="プレビュー" id="preview-img">
                     @endif
                 </div>
-                <label class=" image-upload-button">
+                <label class="image-upload-button">
                     画像を選択する
                     <input type="file" name="profile_image" id="profile_image" accept=".jpeg, .png">
                 </label>
