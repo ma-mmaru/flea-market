@@ -1,0 +1,136 @@
+body {
+    background-color: #FFFFFF;
+    min-height: 982px;
+}
+
+.alert-success {
+    width: 600px;
+    margin: 20px auto;
+    padding: 10px;
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.profile {
+    position: relative;
+    width: 1017px;
+    height: 150px;
+    margin: 78px auto 0;
+    display: flex;
+    align-items: center;
+}
+
+.profile-image img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: #D9D9D9;
+}
+
+.profile-name {
+    margin-left: 57px;
+    width: 250px;
+    height: 65px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000000;
+}
+
+.profile-edit_button {
+    position: absolute;
+    right: 0;
+    width: 310px;
+    height: 59px;
+    border: 2px solid #FF5555;
+    border-radius: 10px;
+    color: #FF5555;
+    text-decoration: none;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+}
+
+.profile-edit_button:hover {
+    background-color: #FF5555;
+    color: #ffffff;
+}
+
+.profile-tabs {
+    margin-top: 77px;
+    width: 100%;
+    height: 47px;
+    border-bottom: 2px solid #5F5F5F;
+    display: flex;
+    padding-left: 129px;
+}
+
+.profile-tab_link {
+    width: 155px;
+    height: 40px;
+    text-decoration: none;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-right: 52px;
+}
+
+.profile-tab_link {
+    color: #5F5F5F;
+}
+
+.profile-tab_link.active {
+    color: #FF0000;
+}
+
+.profile-item_list {
+    width: 1374.5px;
+    margin: 59px auto 50px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 71.5px;
+}
+
+.profile-item_card {
+    width: 290px;
+    height: 320px;
+    box-shadow: 0px 4px 4px 0px #00000040;
+    background-color: #fff;
+}
+
+.profile-item_card img {
+    width: 290px;
+    height: 290px;
+    border-radius: 4px;
+    object-fit: cover;
+}
+
+.profile-item_name {
+    width: 290px;
+    height: 30px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 100%;
+    color: #000000;
+    padding-left: 5px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}

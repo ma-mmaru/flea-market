@@ -277,7 +277,6 @@ h1.login {
 div.login__link,
 div.register__link {
     position: relative;
-    /* 左上への飛び出しを防止 */
     left: 0;
     top: 0;
     width: 100%;
