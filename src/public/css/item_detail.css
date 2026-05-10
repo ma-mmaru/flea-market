@@ -1,0 +1,255 @@
+.item-detail__container {
+    width: 1512px;
+    min-height: 1977px;
+    background: #FFFFFF;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    padding-top: 175px;
+}
+
+.item-detail__container::before {
+    content: none;
+}
+
+.item-detail__image,
+.item-detail__content {
+    width: 690px;
+    min-height: 1704px;
+}
+
+.item-detail__image {
+    display: flex;
+    justify-content: center;
+    padding-top: 36px;
+}
+
+.item-detail__image img {
+    width: 600px;
+    height: 600px;
+    border-radius: 4px;
+    object-fit: cover;
+}
+
+.item-detail__content {
+    padding-left: 65px;
+}
+
+.item-detail__name {
+    width: 570px;
+    margin-bottom: 33px;
+}
+
+.item-name {
+    font-size: 45px;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 0;
+}
+
+.item-detail__brand {
+    font-size: 20px;
+    height: 28px;
+    margin-top: 32px;
+}
+
+.item-detail__price {
+    font-size: 45px;
+    margin-top: 28px;
+}
+
+.price-tax {
+    font-size: 30px;
+    margin-left: 10px;
+}
+
+.item-detail__icon {
+    display: flex;
+    width: 144px;
+    height: 67px;
+    margin-top: 28px;
+}
+
+.icon-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 30px;
+}
+
+.like__button-submit {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    outline: none;
+    box-shadow: none;
+}
+
+.icon-item img {
+    width: 40px;
+    height: 40px;
+}
+
+.icon-count {
+    font-size: 18px;
+    font-weight: 700;
+    margin-top: 5px;
+}
+
+.item-detail_purchase-action {
+    width: 570px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+}
+
+.purchase__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 570px;
+    height: 56px;
+    background: #FF5555;
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 30px;
+    font-weight: 700;
+    border-radius: 4px;
+}
+
+.section,
+.item-detail__section {
+    width: 570px;
+    margin-top: 50px;
+}
+
+.item-detail__section:last-of-type .section-title {
+    color: #5F5F5F;
+}
+
+.section-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: #000000;
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+}
+
+.description-text {
+    font-size: 24px;
+    line-height: 1.5;
+}
+
+.info-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.info-label {
+    width: 150px;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.category-tags {
+    display: flex;
+    gap: 20px;
+}
+
+.category-tag {
+    background: #D9D9D9;
+    padding: 5px 20px;
+    border-radius: 50px;
+    font-size: 20px;
+}
+
+.condition-text {
+    font-size: 20px;
+}
+
+.comment-item {
+    margin-bottom: 30px;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.user-icon {
+    width: 70px;
+    height: 70px;
+    background: #D9D9D9;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 18px;
+}
+
+.user-icon-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.user-icon-placeholder {
+    width: 100%;
+    height: 100%;
+    background: #D9D9D9;
+}
+
+.user-name {
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.comment-body {
+    width: 570px;
+    min-height: 70px;
+    background: #F0F0F0;
+    padding: 0 15px;
+    margin-top: 19px;
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: 300;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.comment-form-block {
+    margin-top: 50px;
+}
+
+.form-label {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.comment-textarea {
+    width: 570px;
+    height: 246px;
+    border: 1px solid #5F5F5F;
+    border-radius: 4px;
+    padding: 10px;
+    font-size: 18px;
+}
+
+.comment__button-submit {
+    width: 570px;
+    height: 56px;
+    background: #FF5555;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 4px;
+    font-size: 25px;
+    font-weight: 700;
+    margin-top: 22px;
+    cursor: pointer;
+}
