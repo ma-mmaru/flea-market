@@ -38,5 +38,9 @@ coachtech フリマアプリ
 <マイページ関連>
 ・プロフィール画面: http://localhost/mypage
 ・プロフィール編集画面: http://localhost/mypage/profile
+<開発ツール>
+・MailHog: http://localhost:8025
+・phpMyAdmin: http://localhost:8080
+・Stripe API: '.env'に自身のテスト用APIキーを設定することで動作可能(テスト用カード番号'4242 4242 4242 4242'を使用して決済テストが可能)
 
 ![ER図](src/docs/flea-market-ER.png)
