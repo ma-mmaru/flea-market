@@ -43,4 +43,5 @@ coachtech フリマアプリ
 ・phpMyAdmin: http://localhost:8080
 ・Stripe API: '.env'に自身のテスト用APIキーを設定することで動作可能(テスト用カード番号'4242 4242 4242 4242'を使用して決済テストが可能)
 
+[要件シート](https://docs.google.com/spreadsheets/d/1szL-Q1mv_BRmzpPL1kTtfVt8lTy99g3byT0MiVUusNE/edit?gid=1909938334#gid=1909938334)
 ![ER図](src/docs/flea-market-ER.png)
