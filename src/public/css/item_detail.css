@@ -252,4 +252,9 @@
     font-weight: 700;
     margin-top: 22px;
     cursor: pointer;
+    display: inline-block;
+    text-decoration: none;
+    line-height: 56px;
+    text-align: center;
+    box-sizing: border-box;
 }
