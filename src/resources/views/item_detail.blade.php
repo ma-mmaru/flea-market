@@ -111,7 +111,7 @@
                     @auth
                     <button type="submit" class="comment__button-submit">コメントを送信する</button>
                     @else
-                    <a class="comment-button-submit" href="{{ route('login') }}">コメントを送信する</a>
+                    <a class="comment__button-submit" href="{{ route('login') }}">コメントを送信する</a>
                     @endauth
                 </form>
             </div>
