@@ -14,35 +14,30 @@ class ItemController extends Controller
     {
         $query = Item::query();
         //ログインしている場合のみ自分の商品を除く
-        if (Auth::check())
-            {
-                $query->where('user_id', '!=', Auth::id());
+        if (Auth::check()) {
+            $query->where('user_id', '!=', Auth::id());
         }
         //検索キーワードがある場合商品名で部分一致
-        if($request->filled('keyword'))
-            {
-                $query->where('name', 'like', '%' . $request->keyword . '%');
-            }
+        if ($request->filled('keyword')) {
+            $query->where('name', 'like', '%' . $request->keyword . '%');
+        }
         //タブの判定
         $tab = $request->query('tab', 'all');
-        if($tab === 'mylist')
-            {
-                //マイリスト：いいねした商品のみ
-                if(Auth::check())
-                    {
-                        $query->whereHas('likes', function($q)
-                        {
-                            $q->where('user_id', Auth::id());
-                        });
-                    } else {
-                        //未認証なら空にする
-                        $query->whereRaw('1 = 0');
-                    }
+        if ($tab === 'mylist') {
+            //マイリスト：いいねした商品のみ
+            if (Auth::check()) {
+                $query->whereHas('likes', function ($q) {
+                    $q->where('user_id', Auth::id());
+                });
+            } else {
+                //未認証なら空にする
+                $query->whereRaw('1 = 0');
             }
-            //データを取得
-            $items = $query->get();
-            //ビューに変数$itemsと$tabを渡す
-            return view('index', compact('items', 'tab'));
+        }
+        //データを取得
+        $items = $query->get();
+        //ビューに変数$itemsと$tabを渡す
+        return view('index', compact('items', 'tab'));
     }
     public function show(Item $item)
     {

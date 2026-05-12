@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Item;
 use App\Models\User;
@@ -29,9 +28,8 @@ class ItemsTableSeeder extends Seeder
             ['name' => 'コーヒーミル', 'price' => 4000, 'brand' => 'Starbacks', 'description' => '手動のコーヒーミル', 'image_url' => 'https://coachtech-matter.s3.ap-northeast-1.amazonaws.com/image/Waitress+with+Coffee+Grinder.jpg', 'condition' => '良好'],
             ['name' => 'メイクセット', 'price' => 2500, 'brand' => '', 'description' => '便利なメイクアップセット', 'image_url' => 'https://coachtech-matter.s3.ap-northeast-1.amazonaws.com/image/%E5%A4%96%E5%87%BA%E3%83%A1%E3%82%A4%E3%82%AF%E3%82%A2%E3%83%83%E3%83%95%E3%82%9A%E3%82%BB%E3%83%83%E3%83%88.jpg', 'condition' => '目立った傷や汚れなし'],
         ];
-        foreach ($items as $item)
-            {
-                Item::create(array_merge($item, ['user_id' => $user->id]));
-            }
+        foreach ($items as $item) {
+            Item::create(array_merge($item, ['user_id' => $user->id]));
+        }
     }
 }

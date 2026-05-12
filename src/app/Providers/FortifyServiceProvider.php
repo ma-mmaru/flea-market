@@ -25,8 +25,7 @@ class FortifyServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->app->singleton(LogoutResponse::class, function()
-        {
+        $this->app->singleton(LogoutResponse::class, function () {
             return new class implements LogoutResponse
             {
                 public function toResponse($request)
@@ -35,9 +34,8 @@ class FortifyServiceProvider extends ServiceProvider
                 }
             };
         });
-        $this->app->singleton(RegisterResponse::class, function()
-        {
-            return new class implements RegisterResponse{
+        $this->app->singleton(RegisterResponse::class, function () {
+            return new class implements RegisterResponse {
                 public function toResponse($request)
                 {
                     return redirect('/email/verify');
@@ -58,24 +56,22 @@ class FortifyServiceProvider extends ServiceProvider
         Fortify::redirectUserForTwoFactorAuthenticationUsing(RedirectIfTwoFactorAuthenticatable::class);
 
         //会員登録画面にauth/register.blade.phpを使用する
-        Fortify::registerView(function ()
-        {
+        Fortify::registerView(function () {
             return view('auth.register');
         });
         //ログイン画面にauth/login.blade.phpを使用する
-        Fortify::loginView(function ()
-        {
+        Fortify::loginView(function () {
             return view('auth.login');
         });
         //FortifyのLoginRequestから作成したLoginRequestに差し替え
         $this->app->singleton(FortifyLoginRequest::class, MyLoginRequest::class);
         $this->configureRateLimiting();
     }
-    
+
     protected function configureRateLimiting(): void
     {
         RateLimiter::for('login', function (Request $request) {
-            $throttleKey = Str::transliterate(Str::lower($request->input(Fortify::username())).'|'.$request->ip());
+            $throttleKey = Str::transliterate(Str::lower($request->input(Fortify::username())) . '|' . $request->ip());
 
             return Limit::perMinute(5)->by($throttleKey);
         });
