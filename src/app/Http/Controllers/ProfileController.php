@@ -29,19 +29,14 @@ class ProfileController extends Controller
     public function update(ProfileRequest $request)
     {
         $user = Auth::user();
-        $data = $request->validated();
-        //画像がアップロードされた時の処理
+        $data = $request->only(['name', 'postal_code', 'address', 'building']);
         if ($request->hasFile('profile_image')) {
-            //既存の画像がある時は削除
             if ($user->profile_image) {
                 Storage::disk('public')->delete($user->profile_image);
             }
-            //storage/app/public/profile_imagesに保存してパスを取得
             $path = $request->file('profile_image')->store('profile_images', 'public');
-            //データベースに保存するパスを上書き
             $data['profile_image'] = $path;
         }
-        //バリデーション済み、画像パスのデータで更新
         $user->update($data);
         return redirect()->route('mypage')->with('message', 'プロフィールを更新しました');
     }
