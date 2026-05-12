@@ -24,7 +24,7 @@ class LoginRequest extends FortifyLoginRequest
             'password' => ['required'],
         ];
     }
-    
+
     public function messages(): array
     {
         return [

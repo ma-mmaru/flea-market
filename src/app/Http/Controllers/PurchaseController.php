@@ -82,10 +82,9 @@ class PurchaseController extends Controller
     public function success(Item $item)
     {
         $pendingOrder = session('pending_order');
-        if(!$pendingOrder || $pendingOrder['item_id'] !== $item->id)
-            {
-                return redirect()->route('item.show', $item)->with('error', '決済情報が見つかりませんでした。');
-            }
+        if (!$pendingOrder || $pendingOrder['item_id'] !== $item->id) {
+            return redirect()->route('item.show', $item)->with('error', '決済情報が見つかりませんでした。');
+        }
         Order::create([
             'item_id' => $item->id,
             'user_id' => Auth::id(),

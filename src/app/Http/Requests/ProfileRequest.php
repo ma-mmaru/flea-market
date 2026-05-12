@@ -35,7 +35,7 @@ class ProfileRequest extends FormRequest
             'building' => ['nullable', 'string', 'max:255'],
         ];
     }
-    
+
     public function messages(): array
     {
         return [

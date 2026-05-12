@@ -56,7 +56,7 @@
                 <div class="purchase__section">
                     <div class="purchase__section-header">
                         <h2 class="purchase__section-title">配送先</h2>
-                        <a class="purchase__link" href=" {{ route('address.edit', $item) }}">変更する</a>
+                        <a class="purchase__link" href="{{ route('address.edit', $item) }}">変更する</a>
                     </div>
                     <div class="purchase__address-display">
                         <p class="purchase__text">〒 {{ $address['postal_code'] }}</p>

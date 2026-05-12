@@ -82,13 +82,13 @@
             </div>
             <div class="sell-input">
                 <p class="sell-input-label">ブランド名</p>
-                <input type="text" class="sell-text-input" name="brand" value=" {{ old('brand') }}">
+                <input type="text" class="sell-text-input" name="brand" value="{{ old('brand') }}">
             </div>
             <div class="sell-input">
                 <p class="sell-input-label">商品の説明</p>
-                <textarea class=" sell-textarea-input" name="description" row="5">
-                        {{ old('description') }}</textarea>
-                <div class=" form__error">
+                <textarea class="sell-textarea-input" name="description" row="5">
+                {{ old('description') }}</textarea>
+                <div class="form__error">
                     @error('description')
                     {{ $message }}
                     @enderror
@@ -100,7 +100,7 @@
                     <span class="sell-price-symbol">¥</span>
                     <input type="number" class="sell-price-input" name="price" value="{{ old('price') }}">
                 </div>
-                <div class=" form__error">
+                <div class="form__error">
                     @error('price')
                     {{ $message }}
                     @enderror

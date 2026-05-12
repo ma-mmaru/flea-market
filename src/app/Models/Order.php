@@ -15,7 +15,7 @@ class Order extends Model
         'shipping_address',
         'shipping_building',
     ];
-    
+
     public function item()
     {
         return $this->belongsTo(Item::class);

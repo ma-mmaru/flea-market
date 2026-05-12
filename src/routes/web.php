@@ -14,24 +14,20 @@ Route::get('/', [ItemController::class, 'index'])->name('item.index');
 Route::get('/item/{item}', [ItemController::class, 'show'])->name('item.show');
 
 //メール認証
-Route::get('/email/verify', function()
-{
+Route::get('/email/verify', function () {
     return view('auth.verify-email');
 })->middleware('auth')->name('verification.notice');
-Route::get('/email/verify/{id}/{hash}', function(EmailVerificationRequest $request)
-{
+Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
     $request->fulfill();
     return redirect()->route('profile.edit');
 })->middleware(['auth', 'signed'])->name('verification.verify');
-Route::post('/email/verification-notification', function(Request $request)
-{
+Route::post('/email/verification-notification', function (Request $request) {
     $request->user()->sendEmailVerificationNotification();
     return back()->with('status', 'verification-link-sent');
 })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
 
 //メール認証が済んでいないとアクセス不可
-Route::middleware(['auth', 'verified'])->group(function()
-{
+Route::middleware(['auth', 'verified'])->group(function () {
     //プロフィール設定画面
     Route::get('/mypage/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     //プロフィール更新処理

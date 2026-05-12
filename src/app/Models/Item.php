@@ -15,12 +15,11 @@ class Item extends Model
         'image_url',
         'condition',
     ];
-    
+
     //マイリスト（いいね）のリレーション
     public function likes()
     {
         return $this->belongsToMany(User::class, 'likes', 'item_id', 'user_id')->withTimestamps();
-        
     }
     //購入済み判定(ordersテーブルにレコードがあるか)
     public function isSold(): bool
@@ -50,10 +49,9 @@ class Item extends Model
     }
     public function getImageUrlAttribute($value)
     {
-        if (str_starts_with($value, 'http'))
-            {
-                return $value;
-            }
-            return asset('storage/' . $value);
+        if (str_starts_with($value, 'http')) {
+            return $value;
+        }
+        return asset('storage/' . $value);
     }
 }
