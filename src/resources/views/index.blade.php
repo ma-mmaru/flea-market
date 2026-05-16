@@ -18,12 +18,8 @@
     <div class="item__tabs-inner">
         <a class="tab-link {{ $tab == 'all' ? 'active' : '' }}" href="/?tab=all&keyword={{ request('keyword') }}">
             おすすめ</a>
-        @auth
         <a class="tab-link {{ $tab == 'mylist' ? 'active' : '' }}"
             href="/?tab=mylist&keyword={{ request('keyword') }}">マイリスト</a>
-        @else
-        <a class="tab-link {{ $tab == 'mylist' ? 'active' : '' }}" href="{{ route('mypage') }}">マイリスト</a>
-        @endauth
     </div>
 </div>
 <div class="item__grid">
@@ -43,8 +39,6 @@
         </div>
     </a>
     @empty
-    {{-- 未認証、該当なしの場合の表示 --}}
-    <p class="empty-message">表示する商品がありません。</p>
     @endforelse
 </div>
 @endsection
