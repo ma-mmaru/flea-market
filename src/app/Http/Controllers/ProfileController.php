@@ -38,6 +38,6 @@ class ProfileController extends Controller
             $data['profile_image'] = $path;
         }
         $user->update($data);
-        return redirect()->route('mypage')->with('message', 'プロフィールを更新しました');
+        return redirect()->route('item.index')->with('message', 'プロフィールを更新しました');
     }
 }
