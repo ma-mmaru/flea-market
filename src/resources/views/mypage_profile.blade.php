@@ -33,10 +33,12 @@
                     <img class="profile-image" src="" alt="プレビュー" id="preview-img">
                     @endif
                 </div>
-                <label class="image-upload-button">
-                    画像を選択する
+                <div class="image-upload">
+                    <label class="image-upload-button" for="profile_image">
+                        画像を選択する
+                    </label>
                     <input type="file" name="profile_image" id="profile_image" accept=".jpeg, .png">
-                </label>
+                </div>
                 <div class="form__error">
                     @error('profile_image')
                     {{ $message }}
