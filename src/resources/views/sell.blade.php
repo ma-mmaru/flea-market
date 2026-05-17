@@ -21,10 +21,12 @@
         <div class="sell-form-section">
             <p class="sell-section-title">商品画像</p>
             <div class="sell-image">
-                <label class="sell-label" for="image_url">
-                    <span class="sell-image-button">画像を選択する</span>
-                    <input type="file" class="sell-image-input" name="image_url" id="image_url">
-                </label>
+                <div class="sell-image-upload">
+                    <label class="sell-label" for="image_url">
+                        <span class="sell-image-button">画像を選択する</span>
+                    </label>
+                    <input type="file" class="sell-image-input" name="image_url" id="image_url" accept=".jpeg, .png">
+                </div>
             </div>
             <div class="form__error">
                 @error('image_url')

@@ -40,6 +40,12 @@
     margin-top: 10px;
 }
 
+.sell-image-upload {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
 .sell-image-button {
     display: inline-block;
     width: 165px;
@@ -55,7 +61,39 @@
 }
 
 .sell-image-input {
-    display: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    color: #5F5F5F;
+    background: none;
+    border: none;
+    display: block;
+    width: 250px;
+    cursor: pointer;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.sell-image-input::file-selector-button {
+    -webkit-appearance: none;
+    appearance: none;
+    opacity: 0;
+    width: 0;
+    padding: 0;
+    margin: 0;
+    border: none;
+    float: left;
+}
+
+.sell-image-input::-webkit-file-upload-button {
+    -webkit-appearance: none;
+    appearance: none;
+    opacity: 0;
+    width: 0;
+    padding: 0;
+    margin: 0;
+    border: none;
+    float: left;
 }
 
 .sell-section-header {
